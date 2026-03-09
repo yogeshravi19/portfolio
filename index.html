@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogesh Ravi M | Data Science & Analytics Portfolio</title>
+    <meta name="description" content="Portfolio of Yogesh Ravi M — Aspiring Data Analyst with strong skills in Python, SQL, Excel, and data visualization. Experienced in managing real-time datasets and translating data into actionable insights.">
+    <meta name="keywords" content="Yogesh Ravi M, Data Analyst, Data Scientist, Portfolio, Python, Machine Learning, SQL, VIT Chennai">
+    <meta name="author" content="Yogesh Ravi M">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>YRM<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#contact" class="nav-link nav-link-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-greeting" data-animate="fade-up">
+                    <span class="greeting-line"></span>
+                    <span>Hello, I'm</span>
+                </div>
+                <h1 class="hero-name" data-animate="fade-up" data-delay="100">
+                    Yogesh Ravi <span class="name-highlight">M</span>
+                </h1>
+                <div class="hero-typewriter" data-animate="fade-up" data-delay="200">
+                    <span class="typewriter-prefix">I'm a </span>
+                    <span class="typewriter-text" id="typewriter"></span>
+                    <span class="typewriter-cursor">|</span>
+                </div>
+                <p class="hero-description" data-animate="fade-up" data-delay="300">
+                    Aspiring Data Analyst with strong skills in <strong>Python, SQL, Excel</strong>, 
+                    and <strong>data visualization</strong>. Experienced in managing real-time datasets, 
+                    ensuring data accuracy, and translating data into actionable insights for decision-making. 
+                    Proven exposure to analytics-driven projects, AI/ML concepts, and cross-functional leadership.
+                </p>
+                <div class="hero-actions" data-animate="fade-up" data-delay="400">
+                    <a href="#projects" class="btn btn-primary">
+                        <i data-lucide="folder-open" class="btn-icon"></i>
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i data-lucide="send" class="btn-icon"></i>
+                        Get In Touch
+                    </a>
+                </div>
+                <div class="hero-socials" data-animate="fade-up" data-delay="500">
+                    <a href="https://linkedin.com/in/yogesh-ravi-m-397569310/" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="mailto:yogeshravi4343@gmail.com" class="social-link" aria-label="Email">
+                        <i data-lucide="mail"></i>
+                    </a>
+                    <a href="tel:+919585724343" class="social-link" aria-label="Phone">
+                        <i data-lucide="phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual" data-animate="fade-left" data-delay="300">
+                <div class="hero-card">
+                    <div class="hero-card-glow"></div>
+                    <div class="hero-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-initials">YR</div>
+                    </div>
+                    <div class="hero-card-info">
+                        <div class="card-badge">
+                            <i data-lucide="graduation-cap"></i>
+                            <span>Integrated M.Tech CSE</span>
+                        </div>
+                        <div class="card-badge card-badge-accent">
+                            <i data-lucide="map-pin"></i>
+                            <span>VIT Chennai</span>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label">Internships</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="2">0</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="150">0</span>
+                            <span class="stat-label">Team Led</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <a href="#about">
+                <i data-lucide="chevrons-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Introduction</span>
+                <h2 class="section-title">About <span class="text-gradient">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text" data-animate="fade-right">
+                    <p>
+                        I'm an <strong>aspiring Data Analyst</strong> with strong skills in Python, SQL, Excel, 
+                        and data visualization. Currently pursuing my <strong>Integrated M.Tech in Computer Science 
+                        Engineering (Business Analytics)</strong> at <strong>Vellore Institute of Technology, Chennai</strong>. 
+                        Experienced in managing real-time datasets, ensuring data accuracy, and translating data 
+                        into actionable insights for decision-making.
+                    </p>
+                    <p>
+                        My journey spans real-time data management, AI/ML exploration, IoT analytics, and 
+                        cross-functional leadership. As the <strong>President of YUVA Club at VIT Chennai</strong>, 
+                        I've led 150+ members, organized hackathons, and driven campus-wide initiatives — 
+                        blending technical acumen with people management.
+                    </p>
+                    <p>
+                        I thrive at the intersection of <strong>data, technology, and strategy</strong> — 
+                        turning complex datasets into clear, actionable insights that power better decisions.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i data-lucide="brain" class="highlight-icon"></i>
+                            <div>
+                                <strong>Analytical Thinker</strong>
+                                <span>Data-driven problem solver</span>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i data-lucide="users" class="highlight-icon"></i>
+                            <div>
+                                <strong>Team Leader</strong>
+                                <span>150+ member chapter president</span>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i data-lucide="trending-up" class="highlight-icon"></i>
+                            <div>
+                                <strong>Growth-Oriented</strong>
+                                <span>3 internships before graduation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-details" data-animate="fade-left">
+                    <div class="detail-card">
+                        <div class="detail-row">
+                            <span class="detail-key"><i data-lucide="user"></i> Name</span>
+                            <span class="detail-value">Yogesh Ravi M</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-key"><i data-lucide="mail"></i> Email</span>
+                            <span class="detail-value">yogeshravi4343@gmail.com</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-key"><i data-lucide="phone"></i> Phone</span>
+                            <span class="detail-value">+91 9585724343</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-key"><i data-lucide="map-pin"></i> Location</span>
+                            <span class="detail-value">Chennai, India</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-key"><i data-lucide="graduation-cap"></i> Pursuing</span>
+                            <span class="detail-value">Integrated M.Tech CSE</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-key"><i data-lucide="briefcase"></i> Interest</span>
+                            <span class="detail-value">Data Science & Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">What I Know</span>
+                <h2 class="section-title">Skills & <span class="text-gradient">Expertise</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Technical Skills -->
+                <div class="skill-category" data-animate="fade-up" data-delay="0">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrap">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <h3>Programming & Analytics</h3>
+                    </div>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>SQL (MySQL)</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Pandas / NumPy</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>MS Excel</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Science & ML -->
+                <div class="skill-category" data-animate="fade-up" data-delay="100">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrap">
+                            <i data-lucide="brain-circuit"></i>
+                        </div>
+                        <h3>Data Science & ML</h3>
+                    </div>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Machine Learning</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Data Visualization</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>PyTorch</span>
+                                <span>68%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-width="68"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>OpenCV</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-width="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-category" data-animate="fade-up" data-delay="200">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrap">
+                            <i data-lucide="wrench"></i>
+                        </div>
+                        <h3>Tools & Platforms</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Tkinter</span>
+                        <span class="skill-tag">Cloud (Basic)</span>
+                        <span class="skill-tag">IoT Workflows</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">KPI Tracking</span>
+                        <span class="skill-tag">Data Cleaning</span>
+                        <span class="skill-tag">Reporting</span>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skill-category" data-animate="fade-up" data-delay="300">
+                    <div class="skill-category-header">
+                        <div class="skill-icon-wrap">
+                            <i data-lucide="heart-handshake"></i>
+                        </div>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Analytical Thinking</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Team Coordination</span>
+                        <span class="skill-tag">Event Management</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Collaboration</span>
+                        <span class="skill-tag">Presentations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Experience & <span class="text-gradient">Leadership</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item" data-animate="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">
+                                    <i data-lucide="calendar"></i> 2025 — 2026
+                                </span>
+                                <span class="timeline-badge badge-leadership">Leadership</span>
+                            </div>
+                            <h3 class="timeline-title">President</h3>
+                            <p class="timeline-company">
+                                <i data-lucide="building-2"></i> YUVA Club, VIT Chennai
+                            </p>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Elected President, leading planning, execution, and coordination of events and student-led initiatives</li>
+                            <li>Organized hackathons, TechnoVIT events, cultural fests, and social medical camps</li>
+                            <li>Managed volunteers, vendors, budgets, and stakeholder communication for campus operations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="timeline-item" data-animate="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">
+                                    <i data-lucide="calendar"></i> May 2025 — Jul 2025
+                                </span>
+                                <span class="timeline-badge badge-internship">Internship</span>
+                            </div>
+                            <h3 class="timeline-title">Intern — Technology (AI/ML & Data Analytics)</h3>
+                            <p class="timeline-company">
+                                <i data-lucide="building-2"></i> Virtusa Consulting Services Pvt Ltd
+                            </p>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Completed structured corporate internship focused on foundational AI/ML concepts, analytics workflows, and technology practices</li>
+                            <li>Gained exposure to Agile-based software lifecycle, documentation, teamwork, and review-driven task execution</li>
+                            <li>Enhanced analytical communication skills through presentations, reporting, and collaborative work</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="timeline-item" data-animate="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">
+                                    <i data-lucide="calendar"></i> Dec 2024 — May 2025
+                                </span>
+                                <span class="timeline-badge badge-internship">Internship</span>
+                            </div>
+                            <h3 class="timeline-title">IoT Analytics Intern</h3>
+                            <p class="timeline-company">
+                                <i data-lucide="building-2"></i> STEMTech (VNEST, VIT)
+                            </p>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Worked on IoT-based data collection and automation systems</li>
+                            <li>Analyzed IoT sensor data to validate performance and support optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="timeline-item" data-animate="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-meta">
+                                <span class="timeline-date">
+                                    <i data-lucide="calendar"></i> June 2024
+                                </span>
+                                <span class="timeline-badge badge-internship">Internship</span>
+                            </div>
+                            <h3 class="timeline-title">Election Data Analytics Intern</h3>
+                            <p class="timeline-company">
+                                <i data-lucide="building-2"></i> Thanthi TV
+                            </p>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Managed real-time datasets and supported reporting and visualization for live broadcast operations</li>
+                            <li>Contributed to accurate and timely on-air insights for televised election coverage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Club Activities Slideshow Section -->
+    <section class="section section-alt" id="club-activities">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Leadership in Action</span>
+                <h2 class="section-title">Club <span class="text-gradient">Activities</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="slideshow-wrapper" data-animate="fade-up" data-delay="100">
+                <div class="slideshow-container" id="clubSlideshow">
+                    <div class="slide active">
+                        <img src="images/club_leadership.png" alt="Yogesh Ravi M addressing YUVA Club members at VIT Chennai">
+                        <div class="slide-caption">
+                            <h4>Leading from the Front</h4>
+                            <p>Addressing YUVA Club members as President — VIT Chennai</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/club_hackathon.png" alt="Hackathon organized by YUVA Club at VIT Chennai">
+                        <div class="slide-caption">
+                            <h4>Hackathon & Collaboration</h4>
+                            <p>Organizing and mentoring campus hackathon teams</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/club_group_photo.png" alt="YUVA Club group photo at VIT Chennai">
+                        <div class="slide-caption">
+                            <h4>150+ Strong Team</h4>
+                            <p>YUVA Club — Leading a vibrant 150+ member chapter</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/club_event.png" alt="Cultural and tech event organized by YUVA Club">
+                        <div class="slide-caption">
+                            <h4>Events & Festivals</h4>
+                            <p>Organizing TechnoVIT, cultural fests, and social medical camps</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <button class="slide-arrow slide-prev" id="slidePrev" aria-label="Previous slide">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button class="slide-arrow slide-next" id="slideNext" aria-label="Next slide">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Navigation Dots -->
+                <div class="slide-dots" id="slideDots">
+                    <button class="slide-dot active" data-index="0" aria-label="Go to slide 1"></button>
+                    <button class="slide-dot" data-index="1" aria-label="Go to slide 2"></button>
+                    <button class="slide-dot" data-index="2" aria-label="Go to slide 3"></button>
+                    <button class="slide-dot" data-index="3" aria-label="Go to slide 4"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-animate="fade-up" data-delay="0">
+                    <div class="project-card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i data-lucide="line-chart"></i>
+                        </div>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link"><i data-lucide="github"></i></a> -->
+                        </div>
+                    </div>
+                    <h3 class="project-title">FINN-PINN: Physics Neural Network for Stock Prediction</h3>
+                    <p class="project-subtitle">Advanced Machine Learning & Financial Analytics</p>
+                    <p class="project-desc">
+                        Built a Fundamental-Informed Physics Neural Network that embeds domain-specific 
+                        constraint rules into neural training. Integrated financial features and time-series 
+                        data for stock price prediction using Python and PyTorch.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>Neural Networks</span>
+                        <span>Time-Series</span>
+                        <span>Financial Analytics</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-animate="fade-up" data-delay="150">
+                    <div class="project-card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i data-lucide="scan-face"></i>
+                        </div>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link"><i data-lucide="github"></i></a> -->
+                        </div>
+                    </div>
+                    <h3 class="project-title">Automatic Attendance System Using Face Recognition</h3>
+                    <p class="project-subtitle">Computer Vision & Automation — July 2024</p>
+                    <p class="project-desc">
+                        Developed a Python-based face recognition attendance system using OpenCV 
+                        and machine learning. Automated attendance storage and retrieval using 
+                        Pandas and CSV handling for seamless classroom management.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>OpenCV</span>
+                        <span>Machine Learning</span>
+                        <span>Pandas</span>
+                        <span>CSV</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section section-alt" id="education">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Academics</span>
+                <h2 class="section-title">My <span class="text-gradient">Education</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="education-grid">
+                <!-- VIT -->
+                <div class="edu-card edu-card-featured" data-animate="fade-up" data-delay="0">
+                    <div class="edu-card-glow"></div>
+                    <div class="edu-badge">Current</div>
+                    <div class="edu-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h3 class="edu-degree">Integrated M.Tech in Computer Science Engineering (Business Analytics)</h3>
+                    <p class="edu-school">
+                        <i data-lucide="building-2"></i>
+                        Vellore Institute of Technology, Chennai
+                    </p>
+                    <p class="edu-year">
+                        <i data-lucide="calendar"></i>
+                        2022 — 2027
+                    </p>
+                    <p class="edu-desc">
+                        Comprehensive program combining Computer Science fundamentals with 
+                        Business Analytics specialization, including data science, AI/ML, 
+                        and software engineering.
+                    </p>
+                </div>
+
+                <!-- School -->
+                <div class="edu-card" data-animate="fade-up" data-delay="150">
+                    <div class="edu-card-glow"></div>
+                    <div class="edu-icon">
+                        <i data-lucide="school"></i>
+                    </div>
+                    <h3 class="edu-degree">Higher Secondary & Secondary Education (CBSE)</h3>
+                    <p class="edu-school">
+                        <i data-lucide="building-2"></i>
+                        Prince Srivari Senior Secondary School
+                    </p>
+                    <p class="edu-year">
+                        <i data-lucide="map-pin"></i>
+                        12, Kannagi Cross St, Puzhuthivakkam, Madipakkam, Chennai — 600091
+                    </p>
+                    <div class="edu-scores">
+                        <div class="edu-score-item">
+                            <span class="edu-score-label">Class 10th</span>
+                            <span class="edu-score-value">93%</span>
+                        </div>
+                        <div class="edu-score-item">
+                            <span class="edu-score-label">Class 12th</span>
+                            <span class="edu-score-value">89%</span>
+                        </div>
+                    </div>
+                    <p class="edu-desc">
+                        CBSE-affiliated senior secondary school in Chennai, Tamil Nadu. 
+                        Built strong academic foundations with outstanding performance in both 
+                        Board examinations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section section-alt" id="achievements">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Recognition</span>
+                <h2 class="section-title">Key <span class="text-gradient">Achievements</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card" data-animate="fade-up" data-delay="0">
+                    <div class="achievement-icon">
+                        <i data-lucide="crown"></i>
+                    </div>
+                    <h3>YUVA President</h3>
+                    <p>Led a 150+ member chapter as elected President of YUVA (VIT Chennai), driving strategic planning and student initiatives across multiple verticals</p>
+                </div>
+                <div class="achievement-card" data-animate="fade-up" data-delay="100">
+                    <div class="achievement-icon">
+                        <i data-lucide="rocket"></i>
+                    </div>
+                    <h3>Hackathon Organizer</h3>
+                    <p>Spearheaded campus hackathons and TechnoVIT vertical events, increasing interdisciplinary participation and engagement within the institute</p>
+                </div>
+                <div class="achievement-card" data-animate="fade-up" data-delay="200">
+                    <div class="achievement-icon">
+                        <i data-lucide="tv"></i>
+                    </div>
+                    <h3>Live TV Analytics</h3>
+                    <p>Provided real-time analytics support during Thanthi TV's televised election coverage, contributing to accurate and timely on-air insights</p>
+                </div>
+                <div class="achievement-card" data-animate="fade-up" data-delay="300">
+                    <div class="achievement-icon">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <h3>3 Pre-Grad Internships</h3>
+                    <p>Completed three industry internships prior to graduation in Data Analytics, IoT Analytics, and Corporate Technology — strengthening corporate readiness</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Reach Out</span>
+                <h2 class="section-title">Get In <span class="text-gradient">Touch</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info" data-animate="fade-right">
+                    <p class="contact-intro">
+                        Interested in collaborating, discussing data science, or just saying hello? 
+                        Feel free to reach out through any of these channels!
+                    </p>
+                    <div class="contact-cards">
+                        <a href="mailto:yogeshravi4343@gmail.com" class="contact-card">
+                            <div class="contact-card-icon">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <strong>Email</strong>
+                                <span>yogeshravi4343@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+919585724343" class="contact-card">
+                            <div class="contact-card-icon">
+                                <i data-lucide="phone"></i>
+                            </div>
+                            <div>
+                                <strong>Phone</strong>
+                                <span>+91 9585724343</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/yogesh-ravi-m-397569310/" target="_blank" class="contact-card">
+                            <div class="contact-card-icon">
+                                <i data-lucide="linkedin"></i>
+                            </div>
+                            <div>
+                                <strong>LinkedIn</strong>
+                                <span>yogesh-ravi-m</span>
+                            </div>
+                        </a>
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div>
+                                <strong>Location</strong>
+                                <span>Chennai, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrap" data-animate="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Let's collaborate!">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i data-lucide="send" class="btn-icon"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#hero" class="nav-logo">
+                        <span class="logo-bracket">&lt;</span>YRM<span class="logo-bracket">/&gt;</span>
+                    </a>
+                    <p>Aspiring Data Analyst | Integrated M.Tech CSE @ VIT Chennai</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://linkedin.com/in/yogesh-ravi-m-397569310/" target="_blank" aria-label="LinkedIn">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="mailto:yogeshravi4343@gmail.com" aria-label="Email">
+                        <i data-lucide="mail"></i>
+                    </a>
+                    <a href="tel:+919585724343" aria-label="Phone">
+                        <i data-lucide="phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Yogesh Ravi M. Crafted with passion & data.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

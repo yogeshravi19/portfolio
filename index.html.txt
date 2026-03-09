@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yogesh Ravi M | Data Science Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter, sans-serif;background:#0f172a;color:#e5e7eb}
+header{padding:60px 10%;background:#020617}
+h1{font-size:42px;margin-bottom:10px}
+h2{margin-top:50px;color:#38bdf8}
+.container{padding:40px 10%}
+.card{background:#020617;border:1px solid #1e293b;border-radius:12px;padding:20px;margin-top:20px}
+a{color:#38bdf8;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+button{padding:10px 20px;border:none;border-radius:8px;background:#38bdf8;color:black;font-weight:600;cursor:pointer}
+footer{padding:40px 10%;text-align:center;border-top:1px solid #1e293b;margin-top:60px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Yogesh Ravi M</h1>
+<p>Data Science Research Enthusiast | Incoming MS Data Science Student (UQ 2026)</p>
+<a href="https://github.com/yogeshravi19"><button>View GitHub</button></a>
+</header>
+
+<div class="container">
+
+<h2>About</h2>
+<div class="card">
+<p>I am a data science and analytics enthusiast with experience in machine learning, real-time analytics, and data-driven systems. I am currently pursuing an Integrated M.Tech in Computer Science Engineering (Business Analytics) and will begin my Master of Data Science in July 2026. My interests include applied machine learning, financial analytics, real-time data systems, and decision intelligence.</p>
+</div>
+
+<h2>Research Interests</h2>
+<div class="card">
+<ul>
+<li>Machine Learning for Financial Forecasting</li>
+<li>Real-time Data Analytics</li>
+<li>AI Systems and Automation</li>
+<li>Data Visualization and Decision Intelligence</li>
+<li>Applied Data Science for Business Analytics</li>
+</ul>
+</div>
+
+<h2>Technical Skills</h2>
+<div class="grid">
+<div class="card"><h3>Programming</h3><p>Python, SQL</p></div>
+<div class="card"><h3>Data Science</h3><p>Pandas, NumPy, PyTorch, ML Fundamentals</p></div>
+<div class="card"><h3>Tools</h3><p>Excel, OpenCV, Tkinter, Git</p></div>
+</div>
+
+<h2>Projects</h2>
+<div class="grid">
+
+<div class="card">
+<h3>FINN-PINN Stock Prediction</h3>
+<p>Physics-informed neural network integrating financial constraints into ML training for stock prediction.</p>
+</div>
+
+<div class="card">
+<h3>Face Recognition Attendance System</h3>
+<p>Automated attendance system using OpenCV and Python with data storage via Pandas.</p>
+</div>
+
+</div>
+
+<h2>Experience</h2>
+<div class="card">
+<h3>Virtusa Consulting Services</h3>
+<p>AI/ML & Data Analytics Intern – Exposure to machine learning workflows and agile analytics practices.</p>
+</div>
+
+<div class="card">
+<h3>STEMTech – IoT Analytics Intern</h3>
+<p>Analyzed IoT sensor data and supported automation systems.</p>
+</div>
+
+<div class="card">
+<h3>Thanthi TV – Election Data Analytics</h3>
+<p>Worked with real-time election datasets supporting live broadcast analytics.</p>
+</div>
+
+<h2>Leadership</h2>
+<div class="card">
+<h3>President – YUVA Club</h3>
+<p>Led a 150+ member student chapter, organizing hackathons, events, and initiatives.</p>
+</div>
+
+<h2>Contact</h2>
+<div class="card">
+<p>Email: yogeshravi4343@gmail.com</p>
+<p>GitHub: <a href="https://github.com/yogeshravi19">github.com/yogeshravi19</a></p>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Yogesh Ravi M | Data Science Portfolio</p>
+</footer>
+
+</body>
+</html>
