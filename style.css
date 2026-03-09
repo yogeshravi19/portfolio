@@ -62,7 +62,11 @@
 
 /* === Reset & Base === */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:var(--nav-height)}
+html{scroll-padding-top:var(--nav-height)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
 body{font-family:var(--font-main);background:var(--bg-primary);color:var(--text-primary);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
@@ -425,12 +429,9 @@ input,textarea{font-family:inherit}
 .footer-bottom p{font-size:.82rem;color:var(--text-tertiary)}
 
 /* =====================
-   ANIMATIONS
+   ANIMATIONS — GSAP handles all
+   scroll animations via script.js
    ===================== */
-[data-animate]{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-[data-animate="fade-left"]{transform:translateX(-40px)}
-[data-animate="fade-right"]{transform:translateX(40px)}
-[data-animate].animated{opacity:1;transform:translate(0,0)}
 
 /* =====================
    RESPONSIVE

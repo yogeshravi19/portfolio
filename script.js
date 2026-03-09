@@ -1,11 +1,528 @@
 /* ============================================
-   YOGESH RAVI M — Portfolio Scripts v2
-   Animations, Interactions, Achievements Expand
+   YOGESH RAVI M — Portfolio Scripts v3
+   GSAP + ScrollTrigger + Lenis Smooth Scrolling
+   Premium Animation Engine
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide icons
     lucide.createIcons();
+
+    /* ============================================
+       1. LENIS SMOOTH SCROLLING
+       Ultra-smooth scrolling with GSAP sync
+       ============================================ */
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+    });
+
+    // Sync Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    /* ============================================
+       2. GSAP + SCROLLTRIGGER REGISTRATION
+       ============================================ */
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Default GSAP settings for silky animations
+    gsap.defaults({
+        ease: 'power3.out',
+        duration: 1,
+    });
+
+    /* ============================================
+       3. HERO SECTION — Page Load Animations
+       Sequenced entrance: greeting → name → typewriter
+       → description → buttons → socials → photo card
+       ============================================ */
+    const heroTL = gsap.timeline({
+        defaults: { ease: 'power4.out', duration: 0.9 },
+        delay: 0.3,
+    });
+
+    // Set initial states (everything hidden)
+    gsap.set('.hero-greeting, .hero-name, .hero-typewriter, .hero-description, .hero-actions, .hero-socials', {
+        opacity: 0,
+        y: 40,
+    });
+    gsap.set('.hero-visual', {
+        opacity: 0,
+        x: 60,
+        scale: 0.95,
+    });
+    gsap.set('.hero-scroll-indicator', {
+        opacity: 0,
+        y: 20,
+    });
+
+    // Animate in sequence
+    heroTL
+        .to('.hero-greeting', { opacity: 1, y: 0, duration: 0.7 })
+        .to('.hero-name', { opacity: 1, y: 0, duration: 0.8 }, '-=0.4')
+        .to('.hero-typewriter', { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+        .to('.hero-description', { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+        .to('.hero-actions', { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+        .to('.hero-socials', { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
+        .to('.hero-visual', { opacity: 1, x: 0, scale: 1, duration: 1 }, '-=0.8')
+        .to('.hero-scroll-indicator', { opacity: 1, y: 0, duration: 0.5 }, '-=0.3');
+
+    /* ============================================
+       4. SECTION HEADERS — Fade Up on Scroll
+       Each section header animates when entering view
+       ============================================ */
+    gsap.utils.toArray('.section-header').forEach((header) => {
+        gsap.from(header, {
+            scrollTrigger: {
+                trigger: header,
+                start: 'top 88%',
+                once: true,
+            },
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+        });
+
+        // Animate child elements with stagger
+        const children = header.querySelectorAll('.section-tag, .section-title, .section-line');
+        gsap.from(children, {
+            scrollTrigger: {
+                trigger: header,
+                start: 'top 88%',
+                once: true,
+            },
+            opacity: 0,
+            y: 25,
+            stagger: 0.12,
+            duration: 0.6,
+            delay: 0.2,
+        });
+    });
+
+    /* ============================================
+       5. ABOUT SECTION ANIMATIONS
+       Text and detail card slide in from sides
+       ============================================ */
+    gsap.from('.about-text', {
+        scrollTrigger: {
+            trigger: '.about-grid',
+            start: 'top 82%',
+            once: true,
+        },
+        opacity: 0,
+        x: -50,
+        duration: 0.9,
+    });
+
+    gsap.from('.about-details', {
+        scrollTrigger: {
+            trigger: '.about-grid',
+            start: 'top 82%',
+            once: true,
+        },
+        opacity: 0,
+        x: 50,
+        duration: 0.9,
+        delay: 0.2,
+    });
+
+    // About highlights stagger
+    gsap.from('.highlight-item', {
+        scrollTrigger: {
+            trigger: '.about-highlights',
+            start: 'top 90%',
+            once: true,
+        },
+        opacity: 0,
+        x: -30,
+        stagger: 0.15,
+        duration: 0.6,
+    });
+
+    /* ============================================
+       6. TIMELINE MILESTONES — Sequential Stagger
+       Each milestone slides up into view sequentially
+       ============================================ */
+    // Featured milestone (the top one)
+    gsap.from('.milestone-content-featured', {
+        scrollTrigger: {
+            trigger: '.milestone-content-featured',
+            start: 'top 85%',
+            once: true,
+        },
+        opacity: 0,
+        y: 40,
+        scale: 0.97,
+        duration: 0.8,
+    });
+
+    // Timeline milestones stagger
+    const milestones = gsap.utils.toArray('.milestone-timeline .milestone');
+    gsap.from(milestones, {
+        scrollTrigger: {
+            trigger: '.milestone-timeline',
+            start: 'top 80%',
+            once: true,
+        },
+        opacity: 0,
+        y: 50,
+        stagger: 0.15,
+        duration: 0.7,
+    });
+
+    /* ============================================
+       7. LEADERSHIP SECTION
+       Showcase card with scale entrance
+       ============================================ */
+    gsap.from('.leadership-main-card', {
+        scrollTrigger: {
+            trigger: '.leadership-showcase',
+            start: 'top 82%',
+            once: true,
+        },
+        opacity: 0,
+        y: 60,
+        scale: 0.96,
+        duration: 1,
+    });
+
+    // Leadership inner elements stagger
+    gsap.from('.role-chip, .resp-item', {
+        scrollTrigger: {
+            trigger: '.leadership-main-card',
+            start: 'top 75%',
+            once: true,
+        },
+        opacity: 0,
+        y: 20,
+        stagger: 0.08,
+        duration: 0.5,
+        delay: 0.4,
+    });
+
+    /* ============================================
+       8. EVENT CARDS — Staggered Scroll Animation
+       Each event card animates sequentially with
+       upward slide and fade-in
+       ============================================ */
+    const eventBlocks = gsap.utils.toArray('.event-block');
+    gsap.from(eventBlocks, {
+        scrollTrigger: {
+            trigger: '#events .container',
+            start: 'top 78%',
+            once: true,
+        },
+        opacity: 0,
+        y: 60,
+        stagger: 0.25,
+        duration: 0.9,
+    });
+
+    // Event category labels
+    gsap.utils.toArray('.event-category-label').forEach((label) => {
+        gsap.from(label, {
+            scrollTrigger: {
+                trigger: label,
+                start: 'top 90%',
+                once: true,
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+        });
+    });
+
+    // Event transition
+    gsap.from('.event-transition', {
+        scrollTrigger: {
+            trigger: '.event-transition',
+            start: 'top 90%',
+            once: true,
+        },
+        opacity: 0,
+        duration: 0.8,
+    });
+
+    // Coming soon cards stagger
+    const comingSoonCards = gsap.utils.toArray('.coming-soon-card');
+    gsap.from(comingSoonCards, {
+        scrollTrigger: {
+            trigger: '.event-coming-soon',
+            start: 'top 85%',
+            once: true,
+        },
+        opacity: 0,
+        y: 40,
+        scale: 0.95,
+        stagger: 0.15,
+        duration: 0.6,
+    });
+
+    /* ============================================
+       9. EVENT & PROJECT IMAGES — Scroll Reveal
+       Images scale and fade in when scrolled into viewport
+       ============================================ */
+    gsap.utils.toArray('.event-photo').forEach((img) => {
+        gsap.from(img, {
+            scrollTrigger: {
+                trigger: img,
+                start: 'top 90%',
+                once: true,
+            },
+            opacity: 0,
+            scale: 0.88,
+            y: 30,
+            duration: 0.8,
+        });
+    });
+
+    /* ============================================
+       10. EXPERIENCE TIMELINE
+       Experience cards slide up with stagger
+       ============================================ */
+    const expItems = gsap.utils.toArray('.exp-item');
+    gsap.from(expItems, {
+        scrollTrigger: {
+            trigger: '.exp-timeline',
+            start: 'top 80%',
+            once: true,
+        },
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        duration: 0.8,
+    });
+
+    /* ============================================
+       11. PROJECT CARDS — Staggered Entrance
+       Cards rise up with slight stagger
+       ============================================ */
+    const projectCards = gsap.utils.toArray('.project-card');
+    gsap.from(projectCards, {
+        scrollTrigger: {
+            trigger: '.projects-grid',
+            start: 'top 85%',
+            once: true,
+        },
+        opacity: 0,
+        y: 60,
+        stagger: 0.2,
+        duration: 0.9,
+    });
+
+    /* ============================================
+       12. SKILLS SECTION — Category Stagger
+       Each skill category card animates in
+       ============================================ */
+    const skillCategories = gsap.utils.toArray('.skill-category');
+    gsap.from(skillCategories, {
+        scrollTrigger: {
+            trigger: '.skills-grid',
+            start: 'top 85%',
+            once: true,
+        },
+        opacity: 0,
+        y: 50,
+        stagger: 0.12,
+        duration: 0.8,
+    });
+
+    // Skill tags animation
+    gsap.utils.toArray('.skill-tag').forEach((tag, i) => {
+        gsap.from(tag, {
+            scrollTrigger: {
+                trigger: tag.closest('.skill-category'),
+                start: 'top 80%',
+                once: true,
+            },
+            opacity: 0,
+            scale: 0.85,
+            duration: 0.4,
+            delay: 0.3 + (i % 8) * 0.06,
+        });
+    });
+
+    /* ============================================
+       13. RESEARCH INTERESTS — Card Stagger
+       ============================================ */
+    const researchCards = gsap.utils.toArray('.research-card');
+    gsap.from(researchCards, {
+        scrollTrigger: {
+            trigger: '.research-grid',
+            start: 'top 85%',
+            once: true,
+        },
+        opacity: 0,
+        y: 50,
+        scale: 0.95,
+        stagger: 0.15,
+        duration: 0.7,
+    });
+
+    /* ============================================
+       14. CERTIFICATIONS
+       ============================================ */
+    gsap.from('.cert-card', {
+        scrollTrigger: {
+            trigger: '.certs-grid',
+            start: 'top 85%',
+            once: true,
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.7,
+    });
+
+    /* ============================================
+       15. ACHIEVEMENTS — Staggered Card Entrance
+       ============================================ */
+    const achievementCards = gsap.utils.toArray('.achievement-card');
+    gsap.from(achievementCards, {
+        scrollTrigger: {
+            trigger: '.achievements-grid',
+            start: 'top 85%',
+            once: true,
+        },
+        opacity: 0,
+        y: 50,
+        stagger: 0.15,
+        duration: 0.8,
+    });
+
+    /* ============================================
+       16. EDUCATION — Card Entrance
+       ============================================ */
+    const eduCards = gsap.utils.toArray('.edu-card');
+    gsap.from(eduCards, {
+        scrollTrigger: {
+            trigger: '.education-grid',
+            start: 'top 85%',
+            once: true,
+        },
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        duration: 0.8,
+    });
+
+    /* ============================================
+       17. CONTACT SECTION
+       Left info and right form slide in
+       ============================================ */
+    gsap.from('.contact-info', {
+        scrollTrigger: {
+            trigger: '.contact-grid',
+            start: 'top 82%',
+            once: true,
+        },
+        opacity: 0,
+        x: -50,
+        duration: 0.9,
+    });
+
+    gsap.from('.contact-form-wrap', {
+        scrollTrigger: {
+            trigger: '.contact-grid',
+            start: 'top 82%',
+            once: true,
+        },
+        opacity: 0,
+        x: 50,
+        duration: 0.9,
+        delay: 0.15,
+    });
+
+    // Contact cards stagger
+    const contactCards = gsap.utils.toArray('.contact-card');
+    gsap.from(contactCards, {
+        scrollTrigger: {
+            trigger: '.contact-cards',
+            start: 'top 88%',
+            once: true,
+        },
+        opacity: 0,
+        x: -30,
+        stagger: 0.12,
+        duration: 0.6,
+        delay: 0.3,
+    });
+
+    /* ============================================
+       18. FOOTER ANIMATION
+       ============================================ */
+    gsap.from('.footer-content', {
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 92%',
+            once: true,
+        },
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+    });
+
+    /* ============================================
+       19. SKILL BAR FILL — ScrollTrigger Powered
+       Bars fill to their data-width on scroll
+       ============================================ */
+    gsap.utils.toArray('.skill-bar-fill').forEach((bar) => {
+        const width = bar.getAttribute('data-width');
+        ScrollTrigger.create({
+            trigger: bar,
+            start: 'top 90%',
+            once: true,
+            onEnter: () => {
+                gsap.to(bar, {
+                    width: width + '%',
+                    duration: 1.4,
+                    ease: 'power2.out',
+                });
+            },
+        });
+    });
+
+    /* ============================================
+       20. COUNTER ANIMATION — Hero Stats
+       Numbers count up when visible
+       ============================================ */
+    const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.getAttribute('data-count'));
+                animateCounter(entry.target, target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(el => counterObserver.observe(el));
+
+    function animateCounter(element, target) {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+            val: target,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: () => {
+                element.textContent = Math.round(obj.val) + (target >= 100 ? '+' : '');
+            },
+        });
+    }
+
+    /* ============================================
+       EXISTING FEATURES (Preserved)
+       ============================================ */
 
     // === Typewriter Effect ===
     const typewriterEl = document.getElementById('typewriter');
@@ -46,24 +563,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     typeWriter();
 
-    // === Navbar Scroll ===
+    // === Navbar Scroll (Lenis-compatible) ===
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-link:not(.nav-link-cta)');
     const sections = document.querySelectorAll('section[id]');
 
-    function handleScroll() {
+    // Use Lenis scroll event for navbar effects
+    lenis.on('scroll', ({ scroll }) => {
         // Navbar background
-        if (window.scrollY > 50) {
+        if (scroll > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
 
-        // Active nav link
+        // Active nav link highlight
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 120;
-            if (window.scrollY >= sectionTop) {
+            if (scroll >= sectionTop) {
                 current = section.getAttribute('id');
             }
         });
@@ -74,10 +592,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
-    }
+    });
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    // Initial navbar state
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    }
 
     // === Mobile Nav Toggle ===
     const navToggle = document.getElementById('navToggle');
@@ -112,78 +632,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateCursorGlow();
 
-    // === Scroll Animations (Intersection Observer) ===
-    const animateElements = document.querySelectorAll('[data-animate]');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const delay = entry.target.getAttribute('data-delay') || 0;
-                setTimeout(() => {
-                    entry.target.classList.add('animated');
-                }, parseInt(delay));
-                observer.unobserve(entry.target);
+    // === Smooth Anchor Scroll (via Lenis) ===
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (target) {
+                lenis.scrollTo(target, {
+                    offset: -72, // nav height offset
+                    duration: 1.2,
+                });
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
     });
-
-    animateElements.forEach(el => observer.observe(el));
-
-    // === Skill Bar Fill Animation ===
-    const skillBars = document.querySelectorAll('.skill-bar-fill');
-
-    const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const width = entry.target.getAttribute('data-width');
-                entry.target.style.width = width + '%';
-                skillObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    skillBars.forEach(bar => skillObserver.observe(bar));
-
-    // === Counter Animation ===
-    const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-count'));
-                animateCounter(entry.target, target);
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    statNumbers.forEach(el => counterObserver.observe(el));
-
-    function animateCounter(element, target) {
-        const duration = 2000;
-        const start = 0;
-        const startTime = performance.now();
-
-        function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-
-            // Ease out cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(start + (target - start) * eased);
-
-            element.textContent = current + (target >= 100 ? '+' : '');
-
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            }
-        }
-
-        requestAnimationFrame(update);
-    }
 
     // === Particle Background ===
     const canvas = document.getElementById('particleCanvas');
@@ -288,17 +750,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     });
 
-    // === Smooth scroll for all anchor links ===
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
     // === Club Activities Slideshow ===
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.slide-dot');
@@ -333,11 +784,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (slides.length > 0) {
-        // Arrow navigation
         if (nextBtn) nextBtn.addEventListener('click', () => { nextSlideFunc(); resetAutoPlay(); });
         if (prevBtn) prevBtn.addEventListener('click', () => { prevSlideFunc(); resetAutoPlay(); });
 
-        // Dot navigation
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
                 goToSlide(parseInt(dot.getAttribute('data-index')));
@@ -345,7 +794,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Start auto-play
         startAutoPlay();
     }
 
@@ -354,23 +802,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     expandableCards.forEach(card => {
         card.addEventListener('click', (e) => {
-            // Don't trigger if clicking inside an already expanded events area link
             if (e.target.closest('.event-item a')) return;
 
             const isCurrentlyExpanded = card.classList.contains('expanded');
 
-            // Collapse all cards first (accordion behavior)
             expandableCards.forEach(c => {
                 c.classList.remove('expanded');
             });
 
-            // If this card wasn't expanded, expand it
             if (!isCurrentlyExpanded) {
                 card.classList.add('expanded');
 
-                // Smooth scroll to make sure the expanded card is visible
                 setTimeout(() => {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    lenis.scrollTo(card, {
+                        offset: -100,
+                        duration: 0.8,
+                    });
                 }, 300);
             }
         });
