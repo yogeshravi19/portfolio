@@ -1,6 +1,6 @@
 /* ============================================
-   YOGESH RAVI M — Portfolio Scripts
-   Animations, Interactions, & Effects
+   YOGESH RAVI M — Portfolio Scripts v2
+   Animations, Interactions, Achievements Expand
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -315,16 +315,16 @@ document.addEventListener('DOMContentLoaded', () => {
         dots[currentSlide].classList.add('active');
     }
 
-    function nextSlide() {
+    function nextSlideFunc() {
         goToSlide(currentSlide + 1);
     }
 
-    function prevSlide() {
+    function prevSlideFunc() {
         goToSlide(currentSlide - 1);
     }
 
     function startAutoPlay() {
-        slideInterval = setInterval(nextSlide, 4000);
+        slideInterval = setInterval(nextSlideFunc, 4000);
     }
 
     function resetAutoPlay() {
@@ -334,8 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (slides.length > 0) {
         // Arrow navigation
-        if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
-        if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { nextSlideFunc(); resetAutoPlay(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { prevSlideFunc(); resetAutoPlay(); });
 
         // Dot navigation
         dots.forEach(dot => {
@@ -348,6 +348,33 @@ document.addEventListener('DOMContentLoaded', () => {
         // Start auto-play
         startAutoPlay();
     }
+
+    // === Interactive Achievement Cards (Accordion) ===
+    const expandableCards = document.querySelectorAll('.achievement-card.expandable');
+
+    expandableCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Don't trigger if clicking inside an already expanded events area link
+            if (e.target.closest('.event-item a')) return;
+
+            const isCurrentlyExpanded = card.classList.contains('expanded');
+
+            // Collapse all cards first (accordion behavior)
+            expandableCards.forEach(c => {
+                c.classList.remove('expanded');
+            });
+
+            // If this card wasn't expanded, expand it
+            if (!isCurrentlyExpanded) {
+                card.classList.add('expanded');
+
+                // Smooth scroll to make sure the expanded card is visible
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            }
+        });
+    });
 
     // Re-initialize Lucide icons for dynamically added elements
     lucide.createIcons();

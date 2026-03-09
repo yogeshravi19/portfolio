@@ -1,45 +1,53 @@
 /* ============================================
-   YOGESH RAVI M — Portfolio Styles
-   Premium Dark Theme with Glassmorphism
+   YOGESH RAVI M — Portfolio Styles v2
+   Enhanced Theme: Vibrant Gradients, Gold Accents,
+   Interactive Achievements, Premium Glassmorphism
    ============================================ */
 
 /* === CSS Variables === */
 :root {
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #0f0f1a;
-    --bg-card: rgba(15, 15, 30, 0.7);
-    --bg-card-hover: rgba(20, 20, 40, 0.85);
+    --bg-primary: #06060d;
+    --bg-secondary: #0c0c1a;
+    --bg-card: rgba(12, 12, 30, 0.75);
+    --bg-card-hover: rgba(18, 18, 45, 0.9);
     --bg-glass: rgba(255, 255, 255, 0.03);
-    --bg-glass-hover: rgba(255, 255, 255, 0.06);
+    --bg-glass-hover: rgba(255, 255, 255, 0.07);
 
-    --text-primary: #e8e8f0;
-    --text-secondary: #9898b0;
-    --text-tertiary: #6a6a80;
+    --text-primary: #eaeaf4;
+    --text-secondary: #9898b8;
+    --text-tertiary: #6a6a88;
 
     --accent-1: #6366f1;     /* Indigo */
     --accent-2: #8b5cf6;     /* Purple */
     --accent-3: #a78bfa;     /* Light Purple */
     --accent-4: #06b6d4;     /* Cyan */
     --accent-5: #22d3ee;     /* Light Cyan */
+    --accent-gold: #f59e0b;  /* Gold/Amber for leadership */
+    --accent-gold-light: #fbbf24;
+    --accent-emerald: #10b981;
 
     --gradient-primary: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-4));
     --gradient-accent: linear-gradient(135deg, var(--accent-2), var(--accent-4));
+    --gradient-gold: linear-gradient(135deg, #f59e0b, #d97706, #b45309);
     --gradient-card: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.05));
+    --gradient-hero: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05), rgba(6, 182, 212, 0.04));
 
     --border-color: rgba(255, 255, 255, 0.06);
-    --border-glow: rgba(99, 102, 241, 0.3);
+    --border-glow: rgba(99, 102, 241, 0.35);
+    --border-gold: rgba(245, 158, 11, 0.35);
 
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
+    --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.18);
+    --shadow-gold-glow: 0 0 30px rgba(245, 158, 11, 0.15);
 
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
 
-    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-main: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     --transition-fast: 0.2s ease;
@@ -92,10 +100,10 @@ input, textarea { font-family: inherit; }
 /* === Cursor Glow === */
 .cursor-glow {
     position: fixed;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.07) 0%, rgba(139, 92, 246, 0.03) 40%, transparent 70%);
     pointer-events: none;
     z-index: 0;
     transform: translate(-50%, -50%);
@@ -125,9 +133,9 @@ input, textarea { font-family: inherit; }
 }
 
 .navbar.scrolled {
-    background: rgba(10, 10, 15, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(6, 6, 13, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--border-color);
     box-shadow: var(--shadow-md);
 }
@@ -269,6 +277,7 @@ input, textarea { font-family: inherit; }
     align-items: center;
     padding: calc(var(--nav-height) + 40px) 0 60px;
     z-index: 1;
+    background: var(--gradient-hero);
 }
 
 .hero-content {
@@ -403,7 +412,7 @@ input, textarea { font-family: inherit; }
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(99, 102, 241, 0.05), transparent, rgba(6, 182, 212, 0.05), transparent);
+    background: conic-gradient(from 0deg, transparent, rgba(99, 102, 241, 0.06), transparent, rgba(6, 182, 212, 0.06), transparent);
     animation: rotateGlow 8s linear infinite;
 }
 
@@ -576,6 +585,24 @@ input, textarea { font-family: inherit; }
     background: var(--gradient-primary);
     border-radius: 3px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
 }
 
 /* =====================
@@ -763,6 +790,23 @@ input, textarea { font-family: inherit; }
     background: var(--gradient-primary);
     border-radius: 6px;
     transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.skill-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+    animation: skillShimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes skillShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
 }
 
 /* Skill Tags */
@@ -806,7 +850,7 @@ input, textarea { font-family: inherit; }
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--accent-1), var(--accent-4), transparent);
+    background: linear-gradient(to bottom, var(--accent-gold), var(--accent-1), var(--accent-4), transparent);
 }
 
 .timeline-item {
@@ -824,8 +868,23 @@ input, textarea { font-family: inherit; }
     height: 12px;
     background: var(--accent-1);
     border-radius: 50%;
-    border: 3px solid var(--bg-primary);
+    border: 3px solid var(--bg-secondary);
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+    transition: var(--transition-normal);
+}
+
+.timeline-dot-gold {
+    background: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3), 0 0 15px rgba(245, 158, 11, 0.2);
+    width: 14px;
+    height: 14px;
+    left: -34px;
+    top: 27px;
+}
+
+.timeline-dot-amber {
+    background: var(--accent-gold-light);
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
 }
 
 .timeline-card {
@@ -841,6 +900,16 @@ input, textarea { font-family: inherit; }
     border-color: var(--border-glow);
     box-shadow: var(--shadow-glow);
     transform: translateX(5px);
+}
+
+.timeline-card-featured {
+    border-color: var(--border-gold);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(217, 119, 6, 0.03), var(--bg-card));
+}
+
+.timeline-card-featured:hover {
+    border-color: var(--accent-gold);
+    box-shadow: var(--shadow-gold-glow);
 }
 
 .timeline-header { margin-bottom: 16px; }
@@ -874,9 +943,9 @@ input, textarea { font-family: inherit; }
 }
 
 .badge-leadership {
-    background: rgba(234, 179, 8, 0.12);
-    color: #fbbf24;
-    border: 1px solid rgba(234, 179, 8, 0.25);
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--accent-gold-light);
+    border: 1px solid rgba(245, 158, 11, 0.25);
 }
 
 .badge-internship {
@@ -1250,7 +1319,7 @@ input, textarea { font-family: inherit; }
     left: 0;
     right: 0;
     padding: 32px 28px 24px;
-    background: linear-gradient(to top, rgba(10, 10, 15, 0.95) 0%, rgba(10, 10, 15, 0.7) 50%, transparent 100%);
+    background: linear-gradient(to top, rgba(6, 6, 13, 0.95) 0%, rgba(6, 6, 13, 0.7) 50%, transparent 100%);
     z-index: 3;
 }
 
@@ -1278,7 +1347,7 @@ input, textarea { font-family: inherit; }
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(10, 10, 15, 0.6);
+    background: rgba(6, 6, 13, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-primary);
     cursor: pointer;
@@ -1328,7 +1397,7 @@ input, textarea { font-family: inherit; }
 }
 
 /* =====================
-   ACHIEVEMENTS
+   ACHIEVEMENTS — Interactive
    ===================== */
 .achievements-grid {
     display: grid;
@@ -1346,12 +1415,32 @@ input, textarea { font-family: inherit; }
     text-align: center;
     backdrop-filter: blur(10px);
     transition: var(--transition-normal);
+    overflow: hidden;
 }
 
 .achievement-card:hover {
     border-color: var(--border-glow);
     transform: translateY(-4px);
     box-shadow: var(--shadow-glow);
+}
+
+.achievement-card.expandable {
+    cursor: pointer;
+    position: relative;
+}
+
+.achievement-card.expandable:hover {
+    transform: translateY(-4px);
+}
+
+.achievement-card.expanded {
+    border-color: var(--accent-1);
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+    transform: none;
+}
+
+.achievement-card.expanded:hover {
+    transform: none;
 }
 
 .achievement-icon {
@@ -1367,9 +1456,19 @@ input, textarea { font-family: inherit; }
     transition: var(--transition-normal);
 }
 
+.achievement-icon-gold {
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--accent-gold);
+}
+
 .achievement-card:hover .achievement-icon {
     background: rgba(99, 102, 241, 0.2);
     transform: scale(1.1);
+}
+
+.achievement-card:hover .achievement-icon-gold {
+    background: rgba(245, 158, 11, 0.2);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
 }
 
 .achievement-icon svg { width: 26px; height: 26px; }
@@ -1384,6 +1483,106 @@ input, textarea { font-family: inherit; }
     font-size: 0.88rem;
     color: var(--text-secondary);
     line-height: 1.6;
+}
+
+/* Expand Hint */
+.achievement-expand-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-normal);
+}
+
+.expand-chevron {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.achievement-card.expanded .expand-chevron {
+    transform: rotate(180deg);
+}
+
+.achievement-card:hover .achievement-expand-hint {
+    color: var(--accent-1);
+}
+
+/* Expandable Events Container */
+.achievement-events {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    margin-top: 0;
+}
+
+.achievement-card.expanded .achievement-events {
+    max-height: 800px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+/* Event Items */
+.event-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    background: rgba(99, 102, 241, 0.04);
+    border: 1px solid rgba(99, 102, 241, 0.08);
+    border-radius: var(--radius-md);
+    text-align: left;
+    transition: var(--transition-fast);
+}
+
+.event-item:last-child { margin-bottom: 0; }
+
+.event-item:hover {
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.18);
+    transform: translateX(3px);
+}
+
+.event-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--accent-4);
+}
+
+.event-icon svg { width: 18px; height: 18px; }
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.event-info strong {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.event-info span {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    line-height: 1.5;
 }
 
 /* =====================
@@ -1629,7 +1828,7 @@ input, textarea { font-family: inherit; }
         left: 0;
         right: 0;
         flex-direction: column;
-        background: rgba(10, 10, 15, 0.95);
+        background: rgba(6, 6, 13, 0.95);
         backdrop-filter: blur(20px);
         padding: 20px 24px;
         border-bottom: 1px solid var(--border-color);
@@ -1656,6 +1855,7 @@ input, textarea { font-family: inherit; }
     .timeline { padding-left: 30px; }
     .timeline::before { left: 10px; }
     .timeline-dot { left: -28px; }
+    .timeline-dot-gold { left: -29px; }
 
     .footer-content {
         flex-direction: column;
