@@ -9,7 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
 
     /* ============================================
-       1. LENIS SMOOTH SCROLLING
+       1. GSAP + SCROLLTRIGGER REGISTRATION
+       Must register BEFORE Lenis references ScrollTrigger
+       ============================================ */
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.defaults({
+        ease: 'power3.out',
+        duration: 1,
+    });
+
+    /* ============================================
+       2. LENIS SMOOTH SCROLLING
        Ultra-smooth scrolling with GSAP sync
        ============================================ */
     const lenis = new Lenis({
@@ -28,17 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lenis.raf(time * 1000);
     });
     gsap.ticker.lagSmoothing(0);
-
-    /* ============================================
-       2. GSAP + SCROLLTRIGGER REGISTRATION
-       ============================================ */
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Default GSAP settings for silky animations
-    gsap.defaults({
-        ease: 'power3.out',
-        duration: 1,
-    });
 
     /* ============================================
        3. HERO SECTION — Page Load Animations
@@ -690,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(99, 102, 241, ${this.opacity})`;
+            ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity})`;
             ctx.fill();
         }
     }
@@ -712,7 +712,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
+                    ctx.strokeStyle = `rgba(6, 182, 212, ${opacity})`;
                     ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }
