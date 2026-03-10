@@ -169,6 +169,29 @@ input,textarea{font-family:inherit}
 .detail-value{font-size:.88rem;font-weight:500;color:var(--text);text-align:right}
 
 /* =========================
+   MILESTONE TIMELINE
+   ========================= */
+.milestone-timeline{position:relative;max-width:760px;margin:0 auto;padding-left:40px}
+.milestone-timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),var(--accent),var(--accent-light),transparent)}
+.milestone{position:relative;margin-bottom:28px}
+.milestone:last-child{margin-bottom:0}
+.milestone-dot{position:absolute;left:-34px;top:24px;width:12px;height:12px;background:var(--accent);border-radius:50%;border:3px solid var(--bg-alt);box-shadow:0 0 0 3px rgba(8,145,178,.18);z-index:2}
+.milestone-dot-gold{background:var(--gold);box-shadow:0 0 0 4px rgba(245,158,11,.2),0 0 16px rgba(245,158,11,.15);width:14px;height:14px;left:-35px;top:23px}
+.milestone-content{padding:22px 26px}
+.milestone-content:hover{transform:translateX(4px)}
+.milestone-year{display:inline-block;padding:3px 10px;background:rgba(8,145,178,.06);border-radius:var(--r-sm);font-size:.72rem;font-weight:600;color:var(--accent-dark);font-family:var(--mono);letter-spacing:.5px;margin-bottom:6px}
+.milestone-content h4{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.milestone-content p{font-size:.86rem;color:var(--text-2);line-height:1.55}
+/* President — Featured Card */
+.milestone-featured{border-color:rgba(245,158,11,.25)!important;background:linear-gradient(135deg,rgba(245,158,11,.04),rgba(217,119,6,.02),var(--bg-card))!important;box-shadow:0 4px 28px rgba(245,158,11,.08)!important}
+.milestone-featured:hover{box-shadow:0 6px 36px rgba(245,158,11,.14)!important;border-color:var(--gold)!important}
+.milestone-featured .milestone-year{background:rgba(245,158,11,.1);color:var(--gold)}
+.milestone-featured h4{font-size:1.1rem}
+.milestone-featured-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:var(--r-xl);font-size:.74rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;animation:pulse-badge 2.5s ease-in-out infinite}
+.milestone-featured-badge svg{width:14px;height:14px}
+@keyframes pulse-badge{0%,100%{opacity:1}50%{opacity:.65}}
+
+/* =========================
    KEY ACHIEVEMENTS
    ========================= */
 .achievements-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -332,6 +355,7 @@ input,textarea{font-family:inherit}
   .hero-name{font-size:2rem}.hero-stats{grid-template-columns:repeat(3,1fr)}
   .achievements-stat-grid{grid-template-columns:1fr}
   .exp-timeline{padding-left:28px}.exp-timeline::before{left:8px}.exp-dot{left:-26px}
+  .milestone-timeline{padding-left:28px}.milestone-timeline::before{left:8px}.milestone-dot{left:-26px}.milestone-dot-gold{left:-27px}
   .footer-content{flex-direction:column;text-align:center}.footer-links{flex-wrap:wrap;justify-content:center}
   .activities-grid{grid-template-columns:1fr}
 }
