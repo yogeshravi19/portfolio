@@ -788,14 +788,7 @@ textarea {
    z-index: 2
 }
 
-.milestone-dot-gold {
-   background: var(--gold);
-   box-shadow: 0 0 0 4px rgba(245, 158, 11, .2), 0 0 16px rgba(245, 158, 11, .15);
-   width: 14px;
-   height: 14px;
-   left: -35px;
-   top: 23px
-}
+/* milestone-dot-gold: see bottom of file */
 
 .milestone-content {
    padding: 22px 26px
@@ -831,60 +824,7 @@ textarea {
    line-height: 1.55
 }
 
-/* President — Featured Card */
-.milestone-featured {
-   border-color: rgba(245, 158, 11, .25) !important;
-   background: linear-gradient(135deg, rgba(245, 158, 11, .04), rgba(217, 119, 6, .02), var(--bg-card)) !important;
-   box-shadow: 0 4px 28px rgba(245, 158, 11, .08) !important
-}
-
-.milestone-featured:hover {
-   box-shadow: 0 6px 36px rgba(245, 158, 11, .14) !important;
-   border-color: var(--gold) !important
-}
-
-.milestone-featured .milestone-year {
-   background: rgba(245, 158, 11, .1);
-   color: var(--gold)
-}
-
-.milestone-featured h4 {
-   font-size: 1.1rem
-}
-
-.milestone-featured-badge {
-   display: inline-flex;
-   align-items: center;
-   gap: 6px;
-   padding: 5px 14px;
-   background: rgba(245, 158, 11, .08);
-   border: 1px solid rgba(245, 158, 11, .2);
-   border-radius: var(--r-xl);
-   font-size: .74rem;
-   font-weight: 700;
-   color: var(--gold);
-   text-transform: uppercase;
-   letter-spacing: 1px;
-   margin-bottom: 10px;
-   animation: pulse-badge 2.5s ease-in-out infinite
-}
-
-.milestone-featured-badge svg {
-   width: 14px;
-   height: 14px
-}
-
-@keyframes pulse-badge {
-
-   0%,
-   100% {
-      opacity: 1
-   }
-
-   50% {
-      opacity: .65
-   }
-}
+/* milestone-featured: removed, replaced by .milestone-content-featured at bottom */
 
 /* =========================
    KEY ACHIEVEMENTS
@@ -1876,66 +1816,6 @@ textarea {
    box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
 }
 
-.events-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-   gap: 28px;
-   margin-top: 40px;
-}
-
-.event-card {
-   background: rgba(255, 255, 255, 0.04);
-   border: 1px solid rgba(255, 255, 255, 0.08);
-   padding: 24px;
-   border-radius: 14px;
-   transition: 0.3s;
-}
-
-.event-card:hover {
-   transform: translateY(-6px);
-   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-}
-
-.event-title {
-   font-size: 20px;
-   font-weight: 700;
-   margin-bottom: 8px;
-}
-
-.event-meta {
-   display: flex;
-   gap: 10px;
-   flex-wrap: wrap;
-   margin-bottom: 10px;
-}
-
-.event-badge {
-   background: #1e293b;
-   color: #38bdf8;
-   padding: 4px 10px;
-   border-radius: 20px;
-   font-size: 12px;
-}
-
-.event-description {
-   font-size: 14px;
-   opacity: 0.9;
-   margin-bottom: 12px;
-}
-
-.event-impact {
-   display: flex;
-   gap: 8px;
-   flex-wrap: wrap;
-}
-
-.event-impact span {
-   background: rgba(56, 189, 248, 0.1);
-   color: #38bdf8;
-   padding: 6px 10px;
-   border-radius: 20px;
-   font-size: 12px;
-}
 
 /* ================= EVENTS SECTION ================= */
 
