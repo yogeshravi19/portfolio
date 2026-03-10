@@ -1816,8 +1816,75 @@ textarea {
    box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
 }
 
-
 /* ================= EVENTS SECTION ================= */
+
+/* Category Headers */
+.event-category {
+   text-align: center;
+   margin-bottom: 20px;
+   margin-top: 48px;
+}
+
+.event-category:first-of-type {
+   margin-top: 0;
+}
+
+.category-label {
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+   font-size: .84rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   letter-spacing: 1.5px;
+   padding: 8px 22px;
+   border-radius: var(--r-xl);
+}
+
+.category-label svg {
+   width: 16px;
+   height: 16px;
+}
+
+/* Teal — Technical */
+.category-tech {
+   background: rgba(8, 145, 178, .07);
+   border: 1px solid rgba(8, 145, 178, .18);
+   color: var(--accent-dark);
+}
+
+/* Gold — Leadership */
+.category-lead {
+   background: rgba(245, 158, 11, .07);
+   border: 1px solid rgba(245, 158, 11, .18);
+   color: var(--gold);
+}
+
+/* Emerald — Community */
+.category-social {
+   background: rgba(16, 185, 129, .07);
+   border: 1px solid rgba(16, 185, 129, .18);
+   color: var(--emerald);
+}
+
+/* Badge color variants */
+.badge-tech {
+   background: rgba(8, 145, 178, .1) !important;
+   color: var(--accent-dark) !important;
+   border-color: rgba(8, 145, 178, .2) !important;
+}
+
+.badge-lead {
+   background: rgba(245, 158, 11, .1) !important;
+   color: var(--gold) !important;
+   border-color: rgba(245, 158, 11, .2) !important;
+}
+
+.badge-social {
+   background: rgba(16, 185, 129, .1) !important;
+   color: var(--emerald) !important;
+   border-color: rgba(16, 185, 129, .2) !important;
+}
 
 .events-grid {
    display: grid;
