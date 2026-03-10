@@ -1936,3 +1936,117 @@ textarea {
    border-radius: 20px;
    font-size: 12px;
 }
+
+/* ================= EVENTS SECTION ================= */
+
+.events-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+   gap: 28px;
+   margin-top: 50px;
+}
+
+/* Event Card */
+
+.event-card {
+   background: linear-gradient(145deg, #0f172a, #020617);
+   border: 1px solid rgba(56, 189, 248, 0.18);
+   padding: 26px;
+   border-radius: 16px;
+   transition: all 0.35s ease;
+   position: relative;
+   overflow: hidden;
+}
+
+/* Top gradient line */
+
+.event-card::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 3px;
+   background: linear-gradient(90deg, #38bdf8, #6366f1, #22c55e);
+}
+
+/* Hover effect */
+
+.event-card:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 20px 55px rgba(0, 0, 0, 0.65);
+   border: 1px solid rgba(56, 189, 248, 0.45);
+}
+
+/* Title */
+
+.event-title {
+   font-size: 20px;
+   font-weight: 700;
+   color: white;
+   margin-bottom: 10px;
+}
+
+/* Meta badges */
+
+.event-meta {
+   display: flex;
+   gap: 10px;
+   flex-wrap: wrap;
+   margin-bottom: 12px;
+}
+
+.event-badge {
+   background: rgba(56, 189, 248, 0.12);
+   color: #38bdf8;
+   padding: 6px 12px;
+   border-radius: 30px;
+   font-size: 12px;
+   font-weight: 500;
+}
+
+/* Description */
+
+.event-description {
+   font-size: 14px;
+   line-height: 1.6;
+   color: #cbd5f5;
+   margin-bottom: 14px;
+}
+
+/* Impact tags */
+
+.event-impact {
+   display: flex;
+   gap: 10px;
+   flex-wrap: wrap;
+}
+
+.event-impact span {
+   background: rgba(34, 197, 94, 0.15);
+   color: #22c55e;
+   padding: 6px 12px;
+   border-radius: 20px;
+   font-size: 12px;
+   font-weight: 500;
+}
+
+/* Images */
+
+.event-images {
+   display: flex;
+   gap: 10px;
+   margin-top: 15px;
+}
+
+.event-images img {
+   width: 100%;
+   height: 110px;
+   object-fit: cover;
+   border-radius: 10px;
+   transition: 0.3s;
+}
+
+.event-images img:hover {
+   transform: scale(1.08);
+}
