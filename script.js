@@ -76,15 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-    // Milestone timeline
+    // Certificates grid
     ScrollTrigger.create({
-        trigger: '.milestone-timeline',
-        start: 'top 82%',
+        trigger: '.certificates-grid',
+        start: 'top 85%',
         once: true,
         onEnter: () => {
-            gsap.fromTo('.milestone',
-                { opacity: 0, y: 36 },
-                { opacity: 1, y: 0, stagger: 0.12, duration: 0.65, ease: 'power3.out' }
+            gsap.fromTo('.cert-card',
+                { opacity: 0, y: 35, scale: 0.95 },
+                { opacity: 1, y: 0, scale: 1, stagger: 0.1, duration: 0.6, ease: 'power3.out' }
             );
         },
     });
