@@ -1225,6 +1225,79 @@ textarea {
    font-family: var(--mono)
 }
 
+/* Published Project Card */
+.project-card-published {
+   border-color: rgba(16, 185, 129, .22);
+   background: linear-gradient(135deg, rgba(16, 185, 129, .04), rgba(8, 145, 178, .03), var(--bg-card));
+}
+
+.project-card-published .project-card-glow {
+   opacity: 1;
+   background: linear-gradient(90deg, var(--emerald), var(--accent), var(--accent-light));
+}
+
+.project-card-published:hover {
+   border-color: rgba(16, 185, 129, .35);
+   box-shadow: 0 8px 40px rgba(16, 185, 129, .12);
+}
+
+.project-card-published .project-icon {
+   background: rgba(16, 185, 129, .08);
+   color: var(--emerald);
+}
+
+.project-card-published .project-header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 12px;
+}
+
+.project-published-badge {
+   display: inline-flex;
+   align-items: center;
+   gap: 5px;
+   padding: 4px 12px;
+   background: rgba(16, 185, 129, .08);
+   border: 1px solid rgba(16, 185, 129, .22);
+   border-radius: var(--r-xl);
+   font-size: .7rem;
+   font-weight: 700;
+   color: var(--emerald);
+   text-transform: uppercase;
+   letter-spacing: .5px;
+   white-space: nowrap;
+}
+
+.project-published-badge svg {
+   width: 13px;
+   height: 13px;
+}
+
+.project-authors {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   font-size: .8rem;
+   color: var(--text-3);
+   margin-bottom: 14px;
+   padding: 8px 12px;
+   background: rgba(8, 145, 178, .03);
+   border-radius: var(--r-sm);
+   border: 1px solid var(--border);
+}
+
+.project-authors svg {
+   width: 14px;
+   height: 14px;
+   color: var(--accent);
+   flex-shrink: 0;
+}
+
+.project-authors span {
+   font-weight: 500;
+}
+
 /* =========================
    EDUCATION
    ========================= */
