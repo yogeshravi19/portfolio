@@ -1,0 +1,202 @@
+%%%%
+% MTecknology's Resume
+%%%%
+% Author: Michael Lustfield
+% License: CC-BY-4
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{tabularx} 
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{1.75in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+\titleformat{\section}{
+  \vspace{-7pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-3px, parsep=0pt, leftmargin=30pt]
+}{
+  \end{itemize}
+}
+
+\renewcommand\labelitemi{--}
+
+\begin{document}
+
+\documentTitle{Yogesh Ravi M}{
+  \href{tel:+919585724343}{\raisebox{-0.05\height} \faPhone\ +919585724343} ~ | ~
+  \href{mailto:yogeshravi4343@gmail.com}{\raisebox{-0.15\height} \faEnvelope\ yogeshravi4343@gmail.com} ~ | ~
+  \href{https://yogeshravim.vercel.app/}{\raisebox{-0.15\height} \faGlobe\ yogeshravim.vercel.app} ~ | ~
+  \href{https://www.linkedin.com/in/m-yogesh-ravi-3975b9310/}{\raisebox{-0.15\height} \faLinkedin\ /in/m-yogesh-ravi-3975b9310} ~ | ~
+  \href{https://github.com/yogeshravi19}{\raisebox{-0.15\height} \faGithub\ /yogeshravi19}
+}
+
+\tinysection{Summary}
+Data Science \& Analytics Enthusiast and Incoming Master of Data Science Student at UQ (July 2026), selected as one of the top performers from the department. Strong foundation in Python, SQL, and Data Visualization, with expertise in managing real-time datasets and translating complex data into strategic insights. Proven track record in applied AI/ML research, financial analytics, and cross-functional leadership.
+
+\section{Experience \& Leadership}
+
+\textbf{YUVA Club, VIT Chennai} — \textit{President} \hfill \textit{2025 -- 2026}
+\begin{resume_list}
+  \item Led 150+ members; organized 25+ events including National AI Hackathon (YUVA AI-THON) and "Thitikkum Deepavali" (major social initiative serving 2,000+ orphan children).
+  \item Awarded "\textbf{Best Marketing Lead}" prior to Presidency; currently steering the chapter to win "\textbf{Best Social \& Outreach Club}" (among 150+ clubs) and "\textbf{Best Collaboration Catalyst}" (across 200+ Yi Yuva clubs).
+\end{resume_list}
+
+
+
+\textbf{VIT Chennai} — \textit{Mentor \& Judge ("Only Founders")} \hfill \textit{Feb 2026}
+\begin{resume_list}
+  \item Evaluated innovative ideas and mentored student founders during a 36-hour sprint for building digital startups.
+\end{resume_list}
+
+\textbf{Virtusa Consulting Services Pvt Ltd} — \textit{Intern – Technology (AI/ML \& Data Analytics)} \hfill \textit{May 2025 -- Jul 2025}
+\begin{resume_list}
+  \item Completed structured corporate internship focused on foundational AI/ML concepts and analytics workflows.
+\end{resume_list}
+
+\textbf{STEMTech (VNEST, VIT)} — \textit{IoT Analytics Intern} \hfill \textit{Dec 2024 -- May 2025}
+\begin{resume_list}
+  \item Worked on IoT-based data collection and analyzed sensor data to validate performance and support optimization.
+\end{resume_list}
+
+\textbf{Thanthi TV} — \textit{Election Data Analytics Intern} \hfill \textit{June 2024}
+\begin{resume_list}
+  \item Managed real-time datasets supporting reporting and visualization for live broadcast operations.
+\end{resume_list}
+
+\section{Publications \& Projects}
+
+\textbf{TRUEGUARD: Toward Trustworthy Large Language Models} \hfill \textit{IEEE Transactions on AI — 2026}
+\begin{resume_list}
+  \item Authored survey on LLM hallucinations; proposed a unified framework for detection, explainability, and mitigation.
+\end{resume_list}
+
+\textbf{Navigating IT Service Management: Frameworks \& Analytics} \hfill \textit{IGI Global Scientific Publishing — 2025}
+\begin{resume_list}
+  \item Co-authored book chapter exploring cloud computing scalability, cost optimization, and ITSM frameworks.
+\end{resume_list}
+
+\textbf{FINN-PINN: Fundamental-Informed Physics Neural Network} \hfill \textit{Advanced ML Project}
+\begin{resume_list}
+  \item Built constraint-aware model embedding domain rules into neural training for stock prediction using PyTorch.
+\end{resume_list}
+
+\textbf{AI Resume Analyzer} \hfill \textit{NLP \& Document Intelligence}
+\begin{resume_list}
+  \item Intelligent resume parsing tool using NLP (Python, Streamlit) to extract skills, experience, and provide scoring.
+\end{resume_list}
+
+\textbf{Automatic Attendance System Using Face Recognition} \hfill \textit{July 2024}
+\begin{resume_list}
+  \item Developed Python-based system using OpenCV and automated attendance storage using Pandas.
+\end{resume_list}
+
+\section{Education}
+
+\textbf{Vellore Institute of Technology, Chennai} \\
+\textit{Integrated M.Tech in Computer Science Engineering (Business Analytics)} \hfill \textit{2022 -- 2027}
+
+\textbf{Prince Srivari Senior Secondary School (CBSE)} \hfill \textit{Chennai} \\
+\textit{Class 12th: 90\% \quad | \quad Class 10th: 94\%}
+
+\section{Achievements}
+
+-- \textbf{National Impact:} Led a 150+ member chapter to secure Best Social \& Outreach Club (among 150+ college clubs) and Best Collaboration Catalyst Award (among 200+ Yi Yuva clubs).
+
+
+
+-- \textbf{Internship Excellence:} Completed multiple internships prior to graduation (Data Analytics, IoT Analytics, Corporate Technology), strengthening corporate readiness.
+
+\section{Core Skills \& Certifications}
+
+\begin{itemize}
+  \item \textbf{Data Analytics \& CRM:} Customer and stakeholder data analysis, data cleaning and validation, KPI tracking, reporting, business insights.
+  \item \textbf{Technical Skills:} Python (Pandas, NumPy, PyTorch, Streamlit), SQL (MySQL), NLP, MS Excel, ML fundamentals, visualization.
+  \item \textbf{Tools \& Platforms:} Python, Excel, OpenCV, Tkinter, Git, Cloud basics.
+  \item \textbf{Certifications:} Blockchain Development (MindLuster), Cloud Foundations (Great Learning Academy), Flutter for Web Developers.
+\end{itemize}
+
+
+\end{document}
