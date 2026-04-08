@@ -887,6 +887,11 @@
                 </div>
                 <div class="contact-form-wrap glass-card" data-animate="fade-left">
                     <form class="contact-form" id="contactForm">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="New Portfolio Inquiry!">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -941,6 +946,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon-wrap">
+                <i data-lucide="check-circle-2" style="width: 32px; height: 32px;"></i>
+            </div>
+            <h3 class="success-title">Message Sent!</h3>
+            <p class="success-msg">Thank you for reaching out. I've received your message and will get back to you soon. A notification has been sent directly to my phone!</p>
+            <button type="button" class="btn btn-primary" style="width: 100%;" onclick="closeModal()">Great!</button>
+        </div>
+    </div>
 
     <!-- Lenis Smooth Scrolling -->
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>

@@ -275,16 +275,64 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
     })();
 
-    // Contact Form
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const btn = form.querySelector('.btn');
-        const orig = btn.innerHTML;
-        btn.innerHTML = '<span style="display:flex;align-items:center;gap:8px;justify-content:center;">✓ Message Sent!</span>';
-        btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
-        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; form.reset(); lucide.createIcons(); }, 3000);
-    });
+    // Contact Form Logic
+    const contactForm = document.getElementById('contactForm');
+    const successModal = document.getElementById('successModal');
+    const submitBtn = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // UI Transition to Loading
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.classList.add('btn-loading');
+            submitBtn.innerHTML = '<i data-lucide="loader-2" class="btn-icon"></i> Sending...';
+            lucide.createIcons(); // Refresh loader icon
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // 1. Send Direct Push Notification via ntfy.sh
+                // Topic: yogesh_portfolio_alerts (You should subscribe to this in ntfy app)
+                await fetch('https://ntfy.sh/yogesh_portfolio_alerts', {
+                    method: 'POST',
+                    body: `New message from ${data.name}: ${data.subject}\n\nEmail: ${data.email}\nMessage: ${data.message}`,
+                    headers: { 'Title': 'Portfolio Inquiry' }
+                });
+
+                // 2. Send Formal Email via FormSubmit.co
+                await fetch('https://formsubmit.co/ajax/yogeshravi4343@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                // Success!
+                contactForm.reset();
+                showModal();
+            } catch (error) {
+                console.error('Submission Error:', error);
+                alert('Something went wrong. Please try again or email me directly.');
+            } finally {
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.innerHTML = originalBtnContent;
+                lucide.createIcons();
+            }
+        });
+    }
+
+    // Modal Helper
+    window.showModal = () => {
+        successModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeModal = () => {
+        successModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
 
     lucide.createIcons();
 });
