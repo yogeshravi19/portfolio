@@ -76,18 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-    // Milestone timeline
-    ScrollTrigger.create({
-        trigger: '.milestone-timeline',
-        start: 'top 82%',
-        once: true,
-        onEnter: () => {
-            gsap.fromTo('.milestone',
-                { opacity: 0, y: 36 },
-                { opacity: 1, y: 0, stagger: 0.12, duration: 0.65, ease: 'power3.out' }
-            );
-        },
-    });
+
 
     // Experience items
     ScrollTrigger.create({
