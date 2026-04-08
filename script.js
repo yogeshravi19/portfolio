@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typewriter
     const typewriterEl = document.getElementById('typewriter');
-    const titles = ['UQ Data Science Scholar', 'Research Analyst', 'Data Science Explorer', 'Python Developer', 'AI/ML Enthusiast', 'Analytics Problem Solver'];
+    const titles = ['Research Analyst', 'Data Analyst', 'Data Science Explorer', 'Python Developer', 'AI/ML Enthusiast', 'Analytics Problem Solver'];
     let titleIdx = 0, charIdx = 0, deleting = false;
 
     function typeWriter() {
