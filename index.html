@@ -321,7 +321,13 @@
                 <div class="section-line"></div>
             </div>
             <div class="achievements-stat-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 1000px; margin: 0 auto; gap: 24px;">
-                <!-- AWARD POWER CARDS -->
+                <!-- 1. PRESIDENTIAL TENURE (2025-2026) -->
+                <div style="grid-column: span 3; display: flex; align-items: center; gap: 12px; padding: 12px 0; margin-top: 12px;" data-animate="fade-up">
+                    <span style="height: 1px; flex-grow: 1; background: linear-gradient(90deg, transparent, var(--accent-light));"></span>
+                    <span style="font-size: 0.725rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); white-space: nowrap;">Achievements during Presidential Tenure</span>
+                    <span style="height: 1px; flex-grow: 1; background: linear-gradient(90deg, var(--accent-light), transparent);"></span>
+                </div>
+
                 <div class="achievement-power-card" data-animate="fade-up" data-delay="0">
                     <img src="images/award_social.png" alt="Best Social & Outreach" class="power-card-img">
                     <div class="power-card-content">
@@ -340,12 +346,31 @@
                     </div>
                 </div>
 
-                <div class="achievement-power-card" data-animate="fade-up" data-delay="200">
+                <div class="achievement-power-card" data-animate="fade-up" data-delay="150" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                    <!-- Icon-based Card since visual quota is hit -->
+                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.1;">
+                        <i data-lucide="heart" style="width: 200px; height: 200px; color: white;"></i>
+                    </div>
+                    <div class="power-card-content">
+                        <div class="power-card-badge" style="background: white; color: #dc2626;"><i data-lucide="heart"></i> Major Social Impact</div>
+                        <h3 class="power-card-title">Thitikkum Deepavali</h3>
+                        <p class="power-card-desc">Led a massive community outreach to serve over 2,000+ orphan children, fostering joy and delivering essential resources.</p>
+                    </div>
+                </div>
+
+                <!-- 2. INDIVIDUAL EXCELLENCE (PRE-PRESIDENCY) -->
+                <div style="grid-column: span 3; display: flex; align-items: center; gap: 12px; padding: 12px 0; margin-top: 24px;" data-animate="fade-up">
+                    <span style="height: 1px; flex-grow: 1; background: linear-gradient(90deg, transparent, var(--text-3));"></span>
+                    <span style="font-size: 0.725rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--text-3); white-space: nowrap;">Leadership Progression & Core Stats</span>
+                    <span style="height: 1px; flex-grow: 1; background: linear-gradient(90deg, var(--text-3), transparent);"></span>
+                </div>
+
+                <div class="achievement-power-card" data-animate="fade-up" data-delay="200" style="height: 240px;"> <!-- Smaller height for secondary awards -->
                     <img src="images/award_marketing.png" alt="Best Marketing Lead" class="power-card-img">
                     <div class="power-card-content">
-                        <div class="power-card-badge"><i data-lucide="trending-up"></i> Marketing Leadership</div>
+                        <div class="power-card-badge"><i data-lucide="trending-up"></i> Marketing Excellence</div>
                         <h3 class="power-card-title">Best Marketing Lead</h3>
-                        <p class="power-card-desc">Led the marketing vertical to unprecedented growth, recognized for executive excellence in high-impact outreach and brand strategy.</p>
+                        <p class="power-card-desc">Led the marketing vertical to unprecedented growth, recognized for high-impact outreach strategies.</p>
                     </div>
                 </div>
 
