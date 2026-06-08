@@ -68,6 +68,11 @@ footer{padding:40px 10%;text-align:center;border-top:1px solid #1e293b;margin-to
 
 <h2>Experience</h2>
 <div class="card">
+<h3>SurgTest – Data Analyst Intern</h3>
+<p>Supported data analytics operations; performed data cleaning, querying, and reporting using PostgreSQL, Metabase, and Zoho Analytics.</p>
+</div>
+
+<div class="card">
 <h3>Virtusa Consulting Services</h3>
 <p>AI/ML & Data Analytics Intern – Exposure to machine learning workflows and agile analytics practices.</p>
 </div>
